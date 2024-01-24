@@ -35,7 +35,7 @@ TSON.parse(`{"date":"Date:1970-01-01T00:00:00.000Z","url":"URL:https://example.c
 
 TSON converts types that are not supported by JSON into string representations, such as `"Date:1970-01-01T00:00:00.000Z"`.
 
-This string consists of the name and value of the object. The value is serialized as a form that can be directly placed in an object constructor for recovery.
+This string consists of the name and value of the Object. The value is serialized as a form that can be directly placed in an Object constructor for recovery.
 
 ## Default Supported Types
 
@@ -75,7 +75,7 @@ TSON.rules.parse.push({
 });
 ```
 
-We determine whether an object has the `$d` property and its value is of type `Date` to identify whether it is a Day.js date object. If it is, we serialize it into a string starting with `dayjs:`, so that it can be stored legally in JSON.
+We determine whether an Object has the `$d` property and its value is of type `Date` to identify whether it is a Day.js date Object. If it is, we serialize it into a string starting with `dayjs:`, so that it can be stored legally in JSON.
 
 ## More Built-in Types?
 
@@ -87,7 +87,7 @@ JavaScript implicitly converts non-existent values to `undefined`, so in most ca
 
 ### Set & Map
 
-In most cases, `Set` and `Map` can be replaced with arrays or objects, and they can easily be converted to arrays or objects.
+In most cases, `Set` and `Map` can be replaced with Array or Object, and they can easily be converted to Array or Object.
 
 ### Function
 
@@ -97,7 +97,7 @@ Serializing functions involves many issues, such as variables in the context and
 
 Other libraries that aim to solve a similar problem:
 
-- [SuperJson](https://github.com/blitz-js/superjson) by Blitz.js
+- [superjson](https://github.com/blitz-js/superjson) by Blitz.js
 - [Serialize JavaScript](https://github.com/yahoo/serialize-javascript) by Eric Ferraiuolo
 - [devalue](https://github.com/Rich-Harris/devalue) by Rich Harris
 - [next-json](https://github.com/iccicci/next-json) by Daniele Ricci
