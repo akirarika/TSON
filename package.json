@@ -1,0 +1,22 @@
+{
+  "name": "@southern-aurora/tson",
+  "module": "index.ts",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "version": "0.0.1",
+  "scripts": {
+    "build": "tsc --declaration --emitDeclarationOnly --outDir dist ./index.ts",
+    "p": "npm version patch && npm publish --access public"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
