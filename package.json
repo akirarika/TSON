@@ -11,7 +11,7 @@
   "version": "0.0.1",
   "scripts": {
     "build": "tsc --declaration --emitDeclarationOnly --outDir dist ./index.ts",
-    "p": "npm version patch && npm publish --access public"
+    "publish": "npm version patch && npm publish --access public"
   },
   "devDependencies": {
     "@types/bun": "latest"

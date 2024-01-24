@@ -1,14 +1,6 @@
-import { TSON } from ".";
+import { TSON } from "./index";
 
-const a = TSON.stringify({
-  data: {
-    date: 123321123123123n,
-    qwq: new Set(),
-    u8a: new Uint8Array([104, 101, 108, 108, 111]).buffer,
-    // file: new File([new Uint8Array([104, 101, 108, 108, 111])], "hello.txt"),
-  },
-  url: new URL("https://example.com"),
-});
+const a = TSON.stringify(new URL("https://example.com/"));
 
 console.log(a);
 

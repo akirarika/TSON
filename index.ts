@@ -58,48 +58,40 @@ export const TSON = {
       },
     ],
   } satisfies TSONRules,
+
   stringify(value: unknown): string {
     function clone(item: any): any {
       if (!item) {
         return item;
       }
-      let types = [Number, String, Boolean];
-      let result: any;
-      for (const type of types) {
-        if (item instanceof type) {
-          result = type(item);
+      if (typeof item !== "object" && typeof item !== "bigint") {
+        return item;
+      } else if (!item) {
+        return item;
+      } else if (Array.isArray(item)) {
+        const result = [];
+        for (let index = 0; index < item.length; index++) {
+          result[index] = clone(item[index]);
+        }
+        return result;
+      }
+      for (const iterator of TSON.rules.stringify) {
+        if (iterator.match(item)) {
+          return iterator.handler(item as any);
         }
       }
-      if (result === undefined) {
-        if (Array.isArray(item)) {
-          result = [];
-          for (let index = 0; index < item.length; index++) {
-            result[index] = clone(item[index]);
-          }
-        }
-        let matched = false;
-        for (const iterator of TSON.rules.stringify) {
-          if (iterator.match(item)) {
-            result = iterator.handler(item);
-            matched = true;
-            break;
-          }
-        }
-        if (matched === false) {
-          result = {};
-          for (let index in item) {
-            result[index] = clone(item[index]);
-          }
-        }
+      const result: any = {};
+      for (var i in item) {
+        result[i] = clone(item[i]);
       }
-
       return result;
     }
-    return JSON.stringify(clone(value));
+    const valueClone = clone(value);
+    return JSON.stringify(valueClone);
   },
+
   parse<T extends any>(text: string): T {
     const result = JSON.parse(text);
-    if (result === null || typeof result !== "object") return result;
     function traverse(obj: any): any {
       if (Array.isArray(obj)) {
         return obj.map(traverse);
@@ -117,11 +109,9 @@ export const TSON = {
             return i.handler(obj);
           }
         }
-
-        return obj;
-      } else {
         return obj;
       }
+      return obj;
     }
     return traverse(result);
   },
