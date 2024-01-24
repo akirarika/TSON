@@ -8,10 +8,10 @@
     "dist",
     "README.md"
   ],
-  "version": "0.0.3",
+  "version": "1.0.0",
   "scripts": {
     "build": "tsc --declaration --emitDeclarationOnly --outDir dist ./index.ts",
-    "publish": "npm version patch && npm publish --access public"
+    "p": "npm publish --access public"
   },
   "devDependencies": {
     "@types/bun": "latest"
