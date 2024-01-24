@@ -8,7 +8,7 @@
     "dist",
     "README.md"
   ],
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "build": "tsc --declaration --emitDeclarationOnly --outDir dist ./index.ts",
     "publish": "npm version patch && npm publish --access public"
