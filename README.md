@@ -6,7 +6,12 @@ TSON supports ArrayBuffer and Uint8Array types, making it more convenient to tra
 
 ## Installation
 
-`npm install @southern-aurora/tson`
+```sh
+# bun
+bun add @southern-aurora/tson
+# npm
+npm install @southern-aurora/tson
+```
 
 ## Usage
 
