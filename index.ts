@@ -8,53 +8,53 @@ export const TSON = {
     stringify: [
       {
         match: (v) => typeof v === "bigint",
-        handler: (v: bigint) => `bigint:${v.toString()}`,
+        handler: (v: bigint) => `t!bigint:${v.toString()}`,
       },
       {
         match: (v) => v instanceof Date,
-        handler: (v: Date) => `Date:${v.toISOString()}`,
+        handler: (v: Date) => `t!Date:${v.toISOString()}`,
       },
       {
         match: (v) => v instanceof URL,
-        handler: (v: URL) => `URL:${v.toString()}`,
+        handler: (v: URL) => `t!URL:${v.toString()}`,
       },
       {
         match: (v) => v instanceof RegExp,
-        handler: (v: RegExp) => `RegExp:${v.toString()}`,
+        handler: (v: RegExp) => `t!RegExp:${v.toString()}`,
       },
       {
         match: (v) => v instanceof Uint8Array,
-        handler: (v: Uint8Array) => `Uint8Array:${new TextDecoder().decode(v)}`,
+        handler: (v: Uint8Array) => `t!Uint8Array:${new TextDecoder().decode(v)}`,
       },
       {
         match: (v) => v instanceof ArrayBuffer,
-        handler: (v: Uint8Array) => `ArrayBuffer:${new TextDecoder().decode(v)}`,
+        handler: (v: Uint8Array) => `t!ArrayBuffer:${new TextDecoder().decode(v)}`,
       },
     ],
     parse: [
       {
-        match: (v) => v.startsWith("bigint:"),
-        handler: (v: string) => BigInt(v.slice("bigint:".length)),
+        match: (v) => v.startsWith("t!bigint:"),
+        handler: (v: string) => BigInt(v.slice("t!bigint:".length)),
       },
       {
-        match: (v) => v.startsWith("Date:"),
-        handler: (v: string) => new Date(v.slice("Date:".length)),
+        match: (v) => v.startsWith("t!Date:"),
+        handler: (v: string) => new Date(v.slice("t!Date:".length)),
       },
       {
-        match: (v) => v.startsWith("URL:"),
-        handler: (v: string) => new URL(v.slice("URL:".length)),
+        match: (v) => v.startsWith("t!URL:"),
+        handler: (v: string) => new URL(v.slice("t!URL:".length)),
       },
       {
-        match: (v) => v.startsWith("RegExp:"),
-        handler: (v: string) => new RegExp(v.slice("RegExp:".length)),
+        match: (v) => v.startsWith("t!RegExp:"),
+        handler: (v: string) => new RegExp(v.slice("t!RegExp:".length)),
       },
       {
-        match: (v) => v.startsWith("Uint8Array:"),
-        handler: (v: string) => new TextEncoder().encode(v.slice("Uint8Array:".length)),
+        match: (v) => v.startsWith("t!Uint8Array:"),
+        handler: (v: string) => new TextEncoder().encode(v.slice("t!Uint8Array:".length)),
       },
       {
-        match: (v) => v.startsWith("ArrayBuffer:"),
-        handler: (v: string) => new TextEncoder().encode(v.slice("ArrayBuffer:".length)).buffer,
+        match: (v) => v.startsWith("t!ArrayBuffer:"),
+        handler: (v: string) => new TextEncoder().encode(v.slice("t!ArrayBuffer:".length)).buffer,
       },
     ],
   } satisfies TSONRules,

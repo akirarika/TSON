@@ -1,6 +1,5 @@
 {
   "name": "@southern-aurora/tson",
-  "module": "index.ts",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -8,10 +7,10 @@
     "dist",
     "README.md"
   ],
-  "version": "1.0.0",
+  "version": "1.0.4",
   "scripts": {
-    "build": "tsc --declaration --emitDeclarationOnly --outDir dist ./index.ts",
-    "p": "npm publish --access public"
+    "build": "bun build ./index.ts --minify --outdir dist --target browser && tsc --declaration --emitDeclarationOnly --outDir dist ./index.ts",
+    "p": "npm publish --access public && rm -rf ./dist"
   },
   "devDependencies": {
     "@types/bun": "latest"
