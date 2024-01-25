@@ -46,7 +46,7 @@ TSON.parse(`{"hello":"world","date":"t!Date:1970-01-01T00:00:00.000Z","url":"t!U
 
 ## Principles
 
-TSON converts types that are not supported by JSON into string representations, for example: `"Date:1970-01-01T00:00:00.000Z"`.
+TSON converts types that are not supported by JSON into string representations, for example: `"t!Date:1970-01-01T00:00:00.000Z"`.
 
 The string consists of the TSON prefix `t!`, the name of the original object, and the content of the original object. The content of the original object will be serialized as much as possible in a form that can be directly placed in an object constructor for recovery. You can determine whether a string starts with `t!` to determine if it has a TSON prefix.
 
