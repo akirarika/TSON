@@ -105,3 +105,12 @@ In most cases, `Set` and `Map` can be replaced with Array & Object, and they can
 ### Function
 
 The serialization function involves many issues, such as variables in the context and potential security risks. Therefore, TSON will never natively support functions. If you want to share certain functions with the frontend, consider whether extracting them into an npm package is a better solution.
+
+## See also
+
+Other libraries that aim to solve a similar problem:
+
+- [superjson](https://github.com/blitz-js/superjson) by Blitz.js
+- [Serialize JavaScript](https://github.com/yahoo/serialize-javascript) by Eric Ferraiuolo
+- [devalue](https://github.com/Rich-Harris/devalue) by Rich Harris
+- [next-json](https://github.com/iccicci/next-json) by Daniele Ricci
