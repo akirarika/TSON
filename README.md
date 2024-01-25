@@ -102,6 +102,10 @@ JavaScript will implicitly convert non-existent values to `undefined`, so in mos
 
 In most cases, `Set` and `Map` can be replaced with Array & Object, and they can be easily converted back and forth with arrays & objects. Moreover, the semantics of Set & Map are independent of JSON. Some teams may prefer to use Set & Map as alternatives to Array & Object in order to achieve slight performance advantages in certain scenarios. However, doing so not only increases the mental burden on developers, but also results in lower performance when serializing them in TSON, as they will be serialized twice. Therefore, TSON does not have built-in support for Set & Map.
 
+### Symbols
+
+We cannot guarantee their equality in network transmission.
+
 ### Function
 
 The serialization function involves many issues, such as variables in the context and potential security risks. Therefore, TSON will never natively support functions. If you want to share certain functions with the frontend, consider whether extracting them into an npm package is a better solution.
