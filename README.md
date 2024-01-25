@@ -104,7 +104,7 @@ In most cases, `Set` and `Map` can be replaced with Array & Object, and they can
 
 ### Symbols
 
-We cannot guarantee their equality in network transmission.
+In network transmission, we cannot guarantee that they are equal. Are you looking for [cuid2](https://github.com/paralleldrive/cuid2) or similar solutions?
 
 ### Function
 
