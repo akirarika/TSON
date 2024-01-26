@@ -1,7 +1,7 @@
 {
   "name": "@southern-aurora/tson",
   "private": true,
-  "version": "1.0.5",
+  "version": "1.0.6",
   "type": "module",
   "main": "./dist/tson.umd.cjs",
   "import": "./dist/tson.js",
