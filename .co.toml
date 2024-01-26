@@ -4,5 +4,5 @@ includes = ["co:bun", "co:git"]
 ["publish"]
 commands = ["publish", "p"]
 scripts = ['goto:g:p', '''
-    tsc && vite build && npm version patch && npm publish --access public
+    bun run build && npm version patch && npm publish --access public
 ''']
