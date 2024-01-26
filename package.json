@@ -1,21 +1,31 @@
 {
   "name": "@southern-aurora/tson",
+  "private": true,
+  "version": "1.0.5",
   "type": "module",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/tson.umd.cjs",
+  "import": "./dist/tson.js",
+  "typings": "./dist/tson.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/tson.js",
+      "require": "./dist/tson.umd.cjs"
+    }
+  },
   "files": [
-    "dist",
-    "README.md"
+    "/dist",
+    "/LICENSE",
+    "/README.md"
   ],
-  "version": "1.0.4",
   "scripts": {
-    "build": "bun build ./index.ts --minify --outdir dist --target browser && tsc --declaration --emitDeclarationOnly --outDir dist ./index.ts",
-    "p": "npm publish --access public && rm -rf ./dist"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "p": "tsc && vite build && npm version patch && npm publish --access public"
   },
   "devDependencies": {
-    "@types/bun": "latest"
-  },
-  "peerDependencies": {
-    "typescript": "^5.0.0"
+    "typescript": "^5.2.2",
+    "vite": "^5.0.8",
+    "vite-plugin-dts": "^3.7.2"
   }
 }

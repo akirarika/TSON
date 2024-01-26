@@ -1,4 +1,4 @@
-import { TSON } from "./index";
+import { TSON } from "./tson";
 
 const a = TSON.stringify(new URL("https://example.com/"));
 
