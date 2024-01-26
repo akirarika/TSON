@@ -20,8 +20,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview",
-    "p": "tsc && vite build && npm version patch && npm publish --access public"
+    "preview": "vite preview"
   },
   "devDependencies": {
     "typescript": "^5.2.2",
