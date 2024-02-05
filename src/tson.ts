@@ -90,7 +90,7 @@ export const TSON = {
     return JSON.stringify(valueClone);
   },
 
-  parse<T = any>(text: string): T {
+  parse(text: string): any {
     const result = JSON.parse(text);
     function traverse(obj: any): any {
       if (Array.isArray(obj)) {
