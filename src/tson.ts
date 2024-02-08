@@ -60,6 +60,14 @@ export const TSON = {
   } satisfies TSONRules,
 
   stringify(value: unknown): string {
+    return JSON.stringify(TSON.encode(value));
+  },
+
+  parse(text: string): any {
+    return TSON.decode(JSON.parse(text));
+  },
+
+  encode<T>(value: T): TSONEncode<T> {
     function clone(item: any): any {
       if (!item) {
         return item;
@@ -86,12 +94,10 @@ export const TSON = {
       }
       return result;
     }
-    const valueClone = clone(value);
-    return JSON.stringify(valueClone);
+    return clone(value);
   },
 
-  parse(text: string): any {
-    const result = JSON.parse(text);
+  decode(value: any): any {
     function traverse(obj: any): any {
       if (Array.isArray(obj)) {
         return obj.map(traverse);
@@ -113,6 +119,14 @@ export const TSON = {
       }
       return obj;
     }
-    return traverse(result);
+    return traverse(value);
   },
+};
+
+export type TSONEncode<T> = RecursiveXToString<T, bigint | Date | URL | RegExp | Uint8Array | ArrayBuffer>;
+
+export type RecursiveXToString<T, X> = RecursiveObjectXToString<{ T: T }, X>["T"];
+
+type RecursiveObjectXToString<T, X> = {
+  [K in keyof T]: T[K] extends X ? string : T[K] extends object ? RecursiveObjectXToString<T[K], X> : T[K];
 };
