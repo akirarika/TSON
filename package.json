@@ -3,12 +3,13 @@
   "version": "2.0.1",
   "type": "module",
   "main": "./dist/tson.umd.cjs",
-  "import": "./dist/tson.js",
+  "module": "./dist/tson.js",
   "typings": "./dist/tson.d.ts",
   "exports": {
     ".": {
       "import": "./dist/tson.js",
-      "require": "./dist/tson.umd.cjs"
+      "require": "./dist/tson.umd.cjs",
+      "types": "./dist/tson.d.ts"
     }
   },
   "files": [
