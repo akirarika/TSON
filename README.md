@@ -2,7 +2,7 @@
 
 TSON is an extensible JSON parser that covers more data types and is a strict superset of JSON.
 
-TSON was initially part of Loongbao and was later separated as a standalone npm package to make it available for frontend and other projects.
+TSON was initially part of [Milkio](https://github.com/akirarika/milkio) and was later separated as a standalone npm package to make it available for frontend and other projects.
 
 ## What is the purpose of TSON?
 
